@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&display=swap"
+        rel="stylesheet">
     <style>
         /* Styles spécifiques à la page hommes */
         .hero-section {
@@ -16,19 +19,19 @@
             text-align: center;
             color: var(--text-primary);
         }
-        
+
         .hero-section h1 {
             font-size: 3rem;
             margin-bottom: 20px;
         }
-        
+
         .category-tabs {
             display: flex;
             justify-content: center;
             margin: 30px 0;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .category-tab {
             padding: 10px 25px;
             margin: 0 10px;
@@ -37,12 +40,12 @@
             color: var(--text-secondary);
             transition: all 0.3s ease;
         }
-        
+
         .category-tab.active {
             color: var(--text-primary);
             font-weight: 600;
         }
-        
+
         .category-tab.active::after {
             content: '';
             position: absolute;
@@ -52,27 +55,27 @@
             height: 3px;
             background: var(--gradient-gold);
         }
-        
+
         .products-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
             padding: 30px;
         }
-        
+
         .product-card {
             background-color: var(--background-secondary);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .product-image {
             height: 250px;
             background-color: #f0f0f0;
@@ -81,40 +84,40 @@
             justify-content: center;
             overflow: hidden;
         }
-        
+
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .product-card:hover .product-image img {
             transform: scale(1.05);
         }
-        
+
         .product-info {
             padding: 20px;
         }
-        
+
         .product-name {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
-        
+
         .product-price {
             font-size: 1.1rem;
             color: var(--accent-2);
             margin-bottom: 15px;
             font-weight: 600;
         }
-        
+
         .product-actions {
             display: flex;
             justify-content: space-between;
         }
-        
+
         .whatsapp-order {
             padding: 8px 15px;
             background: #25D366;
@@ -125,7 +128,7 @@
             align-items: center;
             gap: 5px;
         }
-        
+
         .add-to-cart {
             padding: 8px 15px;
             background: var(--gradient-gold);
@@ -138,19 +141,76 @@
             align-items: center;
             gap: 5px;
         }
-        
+
         .category-content {
             display: none;
         }
-        
+
         .category-content.active {
             display: block;
         }
+
+        .products-slider {
+            position: relative;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .slider-controls button {
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            pointer-events: all;
+            transition: background 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-controls button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .products-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px;
+            gap: 20px;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        .products-container::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        .product-card {
+            flex: 0 0 280px;
+            /* Prevent cards from shrinking */
+        }
     </style>
 </head>
+
 <body>
     <!-- Header avec navigation -->
-     <header>
+    <header>
         <div class="logo">
             <h1>Charly Shop</h1>
         </div>
@@ -195,12 +255,14 @@
 
             <!-- Tous les produits -->
             <div class="category-content active" id="all">
-                <div class="slider-controls">
-                    <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                <div class="products-container">
-                    <!-- Les produits seront injectés ici par JavaScript -->
+                <div class="products-slider">
+                    <div class="slider-controls">
+                        <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="products-container">
+                        <!-- Les produits seront injectés ici par JavaScript -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -219,14 +281,14 @@
                 <!-- Les articles du panier seront ajoutés ici dynamiquement -->
             </div>
             <div class="cart-footer">
-                    <div class="cart-total">
-                        <span>Total:</span>
-                        <span id="cart-total-price">0,00 €</span>
-                    </div>
-                    <button class="checkout-btn" id="checkout-btn">
-                        <i class="fab fa-whatsapp"></i> C'est parti !
-                    </button>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">0,00 €</span>
                 </div>
+                <button class="checkout-btn" id="checkout-btn">
+                    <i class="fab fa-whatsapp"></i> C'est parti !
+                </button>
+            </div>
         </div>
     </div>
 
@@ -267,8 +329,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-            <p>&copy; 2025 Charly Shop. Tous droits réservés.</p>
-        </div>
+                <p>&copy; 2025 Charly Shop. Tous droits réservés.</p>
+            </div>
         </div>
     </footer>
 
@@ -280,37 +342,44 @@
     <script src="js/product-slider.js" defer></script>
     <script src="js/navbar.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const productsContainer = document.querySelector('.products-container');
             const categoryTabs = document.querySelectorAll('.category-tab');
 
-            // Initial render of all products
-            renderProducts('.products-container', hommesProducts);
+            function renderAndInit() {
+                const activeTab = document.querySelector('.category-tab.active');
+                const category = activeTab.getAttribute('data-category');
+                const filteredProducts = category === 'all'
+                    ? hommesProducts
+                    : hommesProducts.filter(p => p.category === category);
+
+                // Pass the slider initializers as a callback
+                renderProducts('.products-container', filteredProducts, () => {
+                    initProductCards();
+                    initHorizontalSlider();
+                });
+            }
+
+            // Initial render
+            renderAndInit();
 
             // Category filtering
             categoryTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function () {
                     categoryTabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-                    
-                    const category = this.getAttribute('data-category');
-                    
-                    const filteredProducts = category === 'all'
-                        ? hommesProducts
-                        : hommesProducts.filter(p => p.category === category);
-
-                    renderProducts('.products-container', filteredProducts);
+                    renderAndInit();
                 });
             });
 
             // Add to cart event delegation
-            productsContainer.addEventListener('click', function(event) {
+            productsContainer.addEventListener('click', function (event) {
                 const cartButton = event.target.closest('.add-to-cart');
                 if (cartButton) {
                     const name = cartButton.dataset.name;
                     const price = parseFloat(cartButton.dataset.price);
                     const image = cartButton.dataset.image;
-                    
+
                     addToCart(name, price, image, 1);
                     showNotification(`${name} ajouté au panier`);
                 }
@@ -323,11 +392,11 @@
             notification.className = 'notification';
             notification.textContent = message;
             document.body.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.classList.add('show');
             }, 10);
-            
+
             setTimeout(() => {
                 notification.classList.remove('show');
                 setTimeout(() => {
@@ -337,4 +406,5 @@
         }
     </script>
 </body>
+
 </html>
