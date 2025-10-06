@@ -208,7 +208,7 @@
     </style>
 </head>
 
-<body>
+<body class="femmes-page">
     <!-- Header avec navigation -->
     <header style="position: static;">
         <div class="logo">
@@ -339,70 +339,8 @@
     <script src="js/products.js" defer></script>
     <script src="js/renderProducts.js" defer></script>
     <script src="js/product-slider.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const productsContainer = document.querySelector('.products-container');
-            const categoryTabs = document.querySelectorAll('.category-tab');
-
-            function renderAndInit() {
-                const activeTab = document.querySelector('.category-tab.active');
-                const category = activeTab.getAttribute('data-category');
-                const filteredProducts = category === 'all'
-                    ? femmesProducts
-                    : femmesProducts.filter(p => p.category === category);
-
-                // Pass the slider initializers as a callback
-                renderProducts('.products-container', filteredProducts, () => {
-                    initProductCards();
-                    initHorizontalSlider();
-                });
-            }
-
-            // Initial render
-            renderAndInit();
-
-            // Category filtering
-            categoryTabs.forEach(tab => {
-                tab.addEventListener('click', function () {
-                    categoryTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    renderAndInit();
-                });
-            });
-
-            // Use event delegation for "Add to Cart" buttons
-            productsContainer.addEventListener('click', function (event) {
-                const cartButton = event.target.closest('.add-to-cart');
-                if (cartButton) {
-                    const name = cartButton.dataset.name;
-                    const price = parseFloat(cartButton.dataset.price);
-                    const image = cartButton.dataset.image;
-
-                    addToCart(name, price, image, 1);
-                    showNotification(`${name} ajouté au panier`);
-                }
-            });
-        });
-
-        // Function to show a notification
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.textContent = message;
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 10);
-
-            setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
-    </script>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/page-specific.js" defer></script>
 </body>
 
 </html>

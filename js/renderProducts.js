@@ -39,7 +39,7 @@ function renderProducts(containerSelector, products, callback) {
                     <a href="https://wa.me/1234567890?text=Je%20souhaite%20commander%20le%20produit%20${encodeURIComponent(productName)}" class="whatsapp-order">
                         <i class="fab fa-whatsapp"></i> Commander
                     </a>
-                    <button class="add-to-cart" data-name="${productName}" data-price="${product.price}" data-image="${productImage}">
+                    <button class="add-to-cart" data-id="${product.id}" data-name="${productName}" data-price="${product.price}" data-image="${productImage}">
                         <i class="fas fa-shopping-cart"></i> Ajouter
                     </button>
                 </div>

@@ -22,30 +22,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Add to cart functionality for demo products
-    const buyButtons = document.querySelectorAll('.buy-btn');
-    
-    buyButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // For demo purposes, we'll create a sample product
-            // In a real implementation, this data would come from the product
-            const productElement = this.closest('.category-card');
-            const productName = productElement.querySelector('h3').textContent;
-            const productImage = productElement.querySelector('img.active').src;
-            
+    // Add to cart functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-to-cart')) {
+            const button = e.target;
             const product = {
-                id: Math.random().toString(36).substr(2, 9), // Generate random ID
-                name: productName,
-                price: 29.99, // Demo price
-                image: productImage
+                id: button.dataset.id,
+                name: button.dataset.name,
+                price: parseFloat(button.dataset.price),
+                image: button.dataset.image
             };
-            
-            // Add to cart
+
             window.addToCart(product);
-            
-            // Show success message
-            showNotification(`${productName} ajouté au panier !`);
-        });
+            showNotification(`${product.name} ajouté au panier !`);
+        }
     });
     
     // Notification function

@@ -1,3 +1,8 @@
+/* Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
 /* Variables de couleurs */
 :root {
     /* Couleurs principales */
@@ -29,11 +34,6 @@
     --gradient-gold: linear-gradient(to right, #f4c2c2, #d4a5a5, #e8d5c4, #e8b4a0);
     --gradient-text: linear-gradient(to right, #f4c2c2, #200E08);
 }
-
-/* Importation des polices */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 /* Reset et styles de base */
 * {

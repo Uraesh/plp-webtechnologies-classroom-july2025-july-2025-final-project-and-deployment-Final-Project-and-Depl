@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Cart data
     let cart = JSON.parse(localStorage.getItem('charlyShopCart')) || [];
+
+    // Sanitize cart data to remove invalid items from previous buggy versions
+    const originalCount = cart.length;
+    cart = cart.filter(item => item && typeof item.price === 'number' && isFinite(item.price));
+    if (cart.length < originalCount) {
+        console.log('Removed invalid items from cart.');
+        saveCart(); // Save the cleaned cart
+    }
     
     // Initialize cart
     function initCart() {

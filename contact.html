@@ -293,32 +293,9 @@
         </div>
     </footer>
 
-    <script src="js/cart.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // Contact Form Validation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Validate form (simple validation)
-            if (name && email && subject && message) {
-                // In a real application, you would send this data to a server
-                // For this demo, we'll just show a success message
-                alert('Merci pour votre message ! Nous vous contacterons bientôt.');
-                
-                // Clear form
-                this.reset();
-            } else {
-                alert('Veuillez remplir tous les champs obligatoires.');
-            }
-        });
-    </script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/page-specific.js" defer></script>
 </body>
 </html>

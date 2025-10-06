@@ -277,15 +277,7 @@
     <script src="js/renderProducts.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/navbar.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const featuredProducts = [
-                ...hommesProducts.slice(0, 2), // First 2 men's products
-                ...femmesProducts.slice(0, 2)  // First 2 women's products
-            ];
-            renderProducts('.featured-products-container', featuredProducts);
-        });
-    </script>
+    <script src="js/page-specific.js" defer></script>
 </body>
 
 </html>
