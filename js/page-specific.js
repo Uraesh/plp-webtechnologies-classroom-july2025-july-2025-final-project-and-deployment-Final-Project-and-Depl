@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const page = document.body.id;
-
     // Logic for the Hommes page
     if (document.querySelector('body.hommes-page')) {
         const productsContainer = document.querySelector('.products-container');

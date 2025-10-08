@@ -6,23 +6,25 @@ Bienvenue sur Charly Shop, une boutique en ligne élégante spécialisée dans l
 
 Charly Shop est une plateforme de e-commerce qui met en avant des collections soigneusement sélectionnées. Les principales fonctionnalités incluent :
 
--   **Navigation Intuitive** : Une interface claire avec des pages dédiées pour les collections hommes et femmes.
--   **Galeries de Produits** : Des pages de produits dynamiques avec des galeries d'images et des descriptions détaillées.
--   **Panier d'Achat Interactif** : Un panier d'achat accessible depuis n'importe quelle page, permettant aux utilisateurs d'ajouter, de modifier et de supprimer des articles.
--   **Intégration WhatsApp** : Un processus de commande finalisé via une redirection vers WhatsApp avec un message pré-rempli.
+- **Navigation Intuitive** : Une interface claire avec des pages dédiées pour les collections hommes et femmes.
+- **Galeries de Produits** : Des pages de produits dynamiques avec des galeries d'images et des descriptions détaillées.
+- **Panier d'Achat Interactif** : Un panier d'achat accessible depuis n'importe quelle page, permettant aux utilisateurs d'ajouter, de modifier et de supprimer des articles.
+- **Intégration WhatsApp** : Un processus de commande finalisé via une redirection vers WhatsApp avec un message pré-rempli.
 
 ## Comment Lancer le Projet
 
 Ce projet ne nécessite pas de backend ni de processus de build complexe. Pour le lancer, suivez ces étapes simples :
 
-1.  **Clonez le Dépôt** :
-    ```bash
-    git clone https://github.com/your-username/charly-shop.git
-    ```
+1. **Clonez le Dépôt** :
 
-2.  **Ouvrez le Fichier `index.html`** :
-    -   Naviguez jusqu'au répertoire du projet.
-    -   Ouvrez le fichier `index.html` directement dans votre navigateur web.
+   ```bash
+   git clone https://github.com/your-username/charly-shop.git
+   ```
+
+2. **Ouvrez le Fichier `index.html`** :
+
+   - Naviguez jusqu'au répertoire du projet.
+   - Ouvrez le fichier `index.html` directement dans votre navigateur web.
 
 Et voilà ! Le site devrait être entièrement fonctionnel.
 
@@ -59,8 +61,8 @@ Le projet est organisé de manière logique pour séparer les différentes préo
 
 ## Technologies Utilisées
 
--   **HTML5**
--   **CSS3** (avec des variables pour une gestion facile des thèmes)
--   **JavaScript (ES6+)**
+- **HTML5**
+- **CSS3** (avec des variables pour une gestion facile des thèmes)
+- **JavaScript (ES6+)**
 
 Aucune dépendance externe n'est requise, à l'exception des polices Google Fonts et de Font Awesome pour les icônes.

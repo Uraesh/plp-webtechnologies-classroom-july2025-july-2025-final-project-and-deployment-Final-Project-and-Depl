@@ -36,7 +36,7 @@ function renderProducts(containerSelector, products, callback) {
                 <h3 class="product-name">${productName}</h3>
                 <p class="product-price">${productPrice} €</p>
                 <div class="product-actions">
-                    <a href="https://wa.me/1234567890?text=Je%20souhaite%20commander%20le%20produit%20${encodeURIComponent(productName)}" class="whatsapp-order">
+                    <a href="https://wa.me/22870838420?text=Je%20souhaite%20commander%20le%20produit%20${encodeURIComponent(productName)}" class="whatsapp-order">
                         <i class="fab fa-whatsapp"></i> Commander
                     </a>
                     <button class="add-to-cart" data-id="${product.id}" data-name="${productName}" data-price="${product.price}" data-image="${productImage}">
