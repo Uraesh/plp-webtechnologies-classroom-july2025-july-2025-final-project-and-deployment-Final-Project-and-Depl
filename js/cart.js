@@ -1,6 +1,7 @@
 // Shopping Cart Functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Cart elements
+    const cartIcon = document.querySelector('.cart-icon');
     const cartBtn = document.getElementById('cart-btn');
     const cartOverlay = document.getElementById('cart-overlay');
     const closeCartBtn = document.getElementById('close-cart');
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (cart.length === 0) {
             cartItems.innerHTML = '<p class="empty-cart">Votre panier est vide</p>';
-            cartTotalPrice.textContent = '0.00';
+            cartTotalPrice.textContent = '0';
             return;
         }
         
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="${item.image}" alt="${item.name}" class="cart-item-img">
                 <div class="cart-item-details">
                     <h4 class="cart-item-title">${item.name}</h4>
-                    <p class="cart-item-price">${item.price.toFixed(2)} €</p>
+                    <p class="cart-item-price">${item.price.toLocaleString('fr-FR')} FCFA</p>
                     <div class="cart-item-quantity">
                         <button class="quantity-btn decrease" data-index="${index}">-</button>
                         <span class="quantity-value">${item.quantity}</span>
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Update total price
-        cartTotalPrice.textContent = total.toFixed(2);
+        cartTotalPrice.textContent = total.toLocaleString('fr-FR');
         
         // Update checkout link with cart details
         updateCheckoutLink();
@@ -111,6 +112,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update UI
         updateCartUI();
+
+        // Animate cart icon
+        if (cartIcon) {
+            cartIcon.classList.add('cart-icon-animate');
+            setTimeout(() => {
+                cartIcon.classList.remove('cart-icon-animate');
+            }, 400); // Match animation duration
+        }
         
         // Show cart
         showCart();

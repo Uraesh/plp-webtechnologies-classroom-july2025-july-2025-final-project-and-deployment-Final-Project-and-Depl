@@ -26,7 +26,7 @@ function renderProducts(containerSelector, products, callback) {
 
         const productName = product.name;
         const productImage = product.image;
-        const productPrice = product.price.toFixed(2).replace('.', ',');
+        const productPrice = product.price.toLocaleString('fr-FR');
 
         productCard.innerHTML = `
             <div class="product-image">
@@ -34,7 +34,7 @@ function renderProducts(containerSelector, products, callback) {
             </div>
             <div class="product-info">
                 <h3 class="product-name">${productName}</h3>
-                <p class="product-price">${productPrice} €</p>
+                <p class="product-price">${productPrice} FCFA</p>
                 <div class="product-actions">
                     <a href="https://wa.me/22870838420?text=Je%20souhaite%20commander%20le%20produit%20${encodeURIComponent(productName)}" class="whatsapp-order">
                         <i class="fab fa-whatsapp"></i> Commander

@@ -12,9 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 : hommesProducts.filter(p => p.category === category);
 
             renderProducts('.products-container', filteredProducts, () => {
-                if (typeof initProductCards === 'function' && typeof initHorizontalSlider === 'function') {
+                if (typeof initProductCards === 'function') {
                     initProductCards();
-                    initHorizontalSlider();
                 }
             });
         }
@@ -47,9 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 : femmesProducts.filter(p => p.category === category);
 
             renderProducts('.products-container', filteredProducts, () => {
-                if (typeof initProductCards === 'function' && typeof initHorizontalSlider === 'function') {
+                if (typeof initProductCards === 'function') {
                     initProductCards();
-                    initHorizontalSlider();
                 }
             });
         }
@@ -70,6 +68,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Logic for the "Produits" page
+    if (document.querySelector('body.produits-page')) {
+        const allProducts = [...(femmesProducts || []), ...(hommesProducts || [])];
+        renderProducts('.products-container', allProducts, () => {
+            if (typeof initProductCards === 'function') {
+                initProductCards();
+            }
+        });
+    }
+
     // Logic for the Index page (featured products)
     if (document.querySelector('.featured-products-container')) {
         const featuredProducts = [
@@ -78,6 +86,17 @@ document.addEventListener('DOMContentLoaded', function () {
         ];
         if (featuredProducts.length > 0) {
             renderProducts('.featured-products-container', featuredProducts);
+        }
+    }
+
+    // Logic for the gallery on the Index page
+    if (document.getElementById('gallery-product-grid')) {
+        const galleryProductIds = ['f20', 'h2', 'f33', 'h32', 'f12', 'h5'];
+        const allProducts = [...(femmesProducts || []), ...(hommesProducts || [])];
+        const galleryProducts = galleryProductIds.map(id => allProducts.find(p => p.id === id)).filter(p => p); // filter out undefined if id not found
+
+        if (galleryProducts.length > 0) {
+            renderProducts('#gallery-product-grid', galleryProducts);
         }
     }
 

@@ -99,6 +99,12 @@
         width: 100%;
         right: -100%;
     }
+
+    #close-cart {
+        font-size: 1.8rem; /* Plus grand */
+        color: var(--text-primary); /* Plus visible */
+        padding: 5px; /* Zone de clic plus grande */
+    }
     
     /* Footer */
     .footer-content {
