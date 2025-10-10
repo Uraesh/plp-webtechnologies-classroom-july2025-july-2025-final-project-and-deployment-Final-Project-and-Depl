@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-
+    
     // Logic for the "Produits" page
     if (document.querySelector('body.produits-page')) {
         const allProducts = [...(femmesProducts || []), ...(hommesProducts || [])];
