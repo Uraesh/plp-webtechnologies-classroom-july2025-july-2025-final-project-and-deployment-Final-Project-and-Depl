@@ -1,6 +1,7 @@
 # Charly Shop
 
 Bienvenue sur Charly Shop, une boutique en ligne élégante spécialisée dans les accessoires de mode et les vêtements pour hommes et femmes. Ce projet est une application web front-end pure, conçue pour offrir une expérience utilisateur fluide et moderne.
+https://charly-shop.vercel.app/
 
 ## Description
 
@@ -65,4 +66,4 @@ Le projet est organisé de manière logique pour séparer les différentes préo
 - **CSS3** (avec des variables pour une gestion facile des thèmes)
 - **JavaScript (ES6+)**
 
-Aucune dépendance externe n'est requise, à l'exception des polices Google Fonts et de Font Awesome pour les icônes.
+Aucune dépendance externe n'est requise, à l'exception des polices Google Fonts et de Font Awesome pour les icônes. 
