@@ -3,79 +3,122 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('body.hommes-page')) {
         const productsContainer = document.querySelector('.products-container');
         const categoryTabs = document.querySelectorAll('.category-tab');
+        const searchBar = document.getElementById('search-bar');
+        const gridSelector = '.products-container';
 
-        function renderAndInit() {
+        renderProducts(gridSelector, hommesProducts, () => {
+            if (typeof initProductCards === 'function') {
+                initProductCards();
+            }
+            if (typeof initShuffle === 'function') {
+                initShuffle(gridSelector, '.product-card');
+            }
+        });
+
+        const handleFilter = () => {
             const activeTab = document.querySelector('.category-tab.active');
             const category = activeTab.getAttribute('data-category');
-            const filteredProducts = category === 'all'
-                ? hommesProducts
-                : hommesProducts.filter(p => p.category === category);
+            const searchTerm = searchBar.value.toLowerCase();
+            const shuffle = window.shuffleInstances[gridSelector];
 
-            renderProducts('.products-container', filteredProducts, () => {
-                if (typeof initProductCards === 'function') {
-                    initProductCards();
-                }
-            });
-        }
+            if (shuffle) {
+                shuffle.filter(element => {
+                    const productName = element.querySelector('.product-name').textContent.toLowerCase();
+                    const productCategory = element.getAttribute('data-category');
 
-        // Initial render
-        if (productsContainer && categoryTabs.length > 0) {
-            renderAndInit();
-        }
+                    const categoryMatch = category === 'all' || productCategory === category;
+                    const searchMatch = productName.includes(searchTerm);
 
-        // Category filtering
+                    return categoryMatch && searchMatch;
+                });
+            }
+        };
+
         categoryTabs.forEach(tab => {
-            tab.addEventListener('click', function () {
+            tab.addEventListener('click', () => {
                 categoryTabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                renderAndInit();
+                tab.classList.add('active');
+                handleFilter();
             });
         });
+
+        searchBar.addEventListener('input', handleFilter);
     }
 
     // Logic for the Femmes page
     if (document.querySelector('body.femmes-page')) {
         const productsContainer = document.querySelector('.products-container');
         const categoryTabs = document.querySelectorAll('.category-tab');
+        const searchBar = document.getElementById('search-bar');
+        const gridSelector = '.products-container';
 
-        function renderAndInit() {
+        renderProducts(gridSelector, femmesProducts, () => {
+            if (typeof initProductCards === 'function') {
+                initProductCards();
+            }
+            if (typeof initShuffle === 'function') {
+                initShuffle(gridSelector, '.product-card');
+            }
+        });
+
+        const handleFilter = () => {
             const activeTab = document.querySelector('.category-tab.active');
             const category = activeTab.getAttribute('data-category');
-            const filteredProducts = category === 'all'
-                ? femmesProducts
-                : femmesProducts.filter(p => p.category === category);
+            const searchTerm = searchBar.value.toLowerCase();
+            const shuffle = window.shuffleInstances[gridSelector];
 
-            renderProducts('.products-container', filteredProducts, () => {
-                if (typeof initProductCards === 'function') {
-                    initProductCards();
-                }
-            });
-        }
+            if (shuffle) {
+                shuffle.filter(element => {
+                    const productName = element.querySelector('.product-name').textContent.toLowerCase();
+                    const productCategory = element.getAttribute('data-category');
 
-        // Initial render
-        if (productsContainer && categoryTabs.length > 0) {
-            renderAndInit();
-        }
+                    const categoryMatch = category === 'all' || productCategory === category;
+                    const searchMatch = productName.includes(searchTerm);
 
+                    return categoryMatch && searchMatch;
+                });
+            }
+        };
 
-        // Category filtering
         categoryTabs.forEach(tab => {
-            tab.addEventListener('click', function () {
+            tab.addEventListener('click', () => {
                 categoryTabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                renderAndInit();
+                tab.classList.add('active');
+                handleFilter();
             });
         });
+
+        searchBar.addEventListener('input', handleFilter);
     }
     
     // Logic for the "Produits" page
     if (document.querySelector('body.produits-page')) {
         const allProducts = [...(femmesProducts || []), ...(hommesProducts || [])];
-        renderProducts('.products-container', allProducts, () => {
+        const searchBar = document.getElementById('search-bar');
+        const gridSelector = '.products-container';
+
+        renderProducts(gridSelector, allProducts, () => {
             if (typeof initProductCards === 'function') {
                 initProductCards();
             }
+            if (typeof initShuffle === 'function') {
+                initShuffle(gridSelector, '.product-card');
+            }
         });
+
+        const handleFilter = () => {
+            const searchTerm = searchBar.value.toLowerCase();
+            const shuffle = window.shuffleInstances[gridSelector];
+
+            if (shuffle) {
+                shuffle.filter(element => {
+                    const productName = element.querySelector('.product-name').textContent.toLowerCase();
+                    return productName.includes(searchTerm);
+                });
+            }
+        };
+
+        searchBar.addEventListener('input', handleFilter);
     }
 
     // Logic for the Index page (featured products)
